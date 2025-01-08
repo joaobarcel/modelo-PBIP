@@ -1,7 +1,7 @@
 table Medidas
 	lineageTag: 4e3a3180-d1d2-415a-810e-239e842bf823
 
-	measure 'Atualizado em' = SELECTEDVALUE('Atualização'[Atualizado em])
+	measure Atualizado = SELECTEDVALUE('Atualização'[Atualizado em])
 		formatString: General Date
 		lineageTag: 3efebea8-452f-4fc2-9f82-b129a378dfab
 
