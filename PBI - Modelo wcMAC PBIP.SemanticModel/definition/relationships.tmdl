@@ -1,0 +1,10 @@
+relationship fb523b67-4910-433c-aa62-e02284444fa9
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Atualização.'Data e Hora'
+	toColumn: LocalDateTable_07452777-f7c5-4a8a-a59c-321a4661f88d.Date
+
+relationship 47444433-c82a-442f-bfb9-cf42a6f6fc80
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Atualização.'Atualizado em'
+	toColumn: LocalDateTable_d4f9fb22-9497-4d16-bd88-c576519697c2.Date
+

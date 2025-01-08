@@ -1,0 +1,49 @@
+table Atualização
+	lineageTag: 76c5bf13-e79e-4aca-a57b-b87dccef3116
+
+	column 'Data e Hora'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 73b5ac3a-9a9d-4364-a494-20d05d9b1ff5
+		summarizeBy: none
+		sourceColumn: Data e Hora
+
+		variation Variation
+			isDefault
+			relationship: fb523b67-4910-433c-aa62-e02284444fa9
+			defaultHierarchy: LocalDateTable_07452777-f7c5-4a8a-a59c-321a4661f88d.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Atualizado em'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 045c2d68-df42-4d61-8c74-e4e7e61a8dfc
+		summarizeBy: none
+		sourceColumn: Atualizado em
+
+		variation Variation
+			isDefault
+			relationship: 47444433-c82a-442f-bfb9-cf42a6f6fc80
+			defaultHierarchy: LocalDateTable_d4f9fb22-9497-4d16-bd88-c576519697c2.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Atualização = m
+		mode: import
+		source =
+				let
+				    Fonte = DateTimeZone.LocalNow(),
+				    #"Convertido para Tabela" = #table(1, {{Fonte}}),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Convertido para Tabela",{{"Column1", type datetimezone}}),
+				    #"Colunas Renomeadas" = Table.RenameColumns(#"Tipo Alterado",{{"Column1", "Data e Hora"}}),
+				    #"Texto Inserido Antes do Delimitador" = Table.AddColumn(#"Colunas Renomeadas", "Texto Antes do Delimitador", each Text.BeforeDelimiter(Text.From([Data e Hora], "pt-BR"), " -"), type text),
+				    #"Colunas Renomeadas1" = Table.RenameColumns(#"Texto Inserido Antes do Delimitador",{{"Texto Antes do Delimitador", "Atualizado em"}}),
+				    #"Tipo Alterado1" = Table.TransformColumnTypes(#"Colunas Renomeadas1",{{"Atualizado em", type datetimezone}})
+				in
+				    #"Tipo Alterado1"
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

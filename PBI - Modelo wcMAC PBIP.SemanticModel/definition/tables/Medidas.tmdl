@@ -1,0 +1,25 @@
+table Medidas
+	lineageTag: 4e3a3180-d1d2-415a-810e-239e842bf823
+
+	measure 'Atualizado em' = SELECTEDVALUE('Atualização'[Atualizado em])
+		formatString: General Date
+		lineageTag: 3efebea8-452f-4fc2-9f82-b129a378dfab
+
+	column Column
+		isHidden
+		formatString: 0
+		lineageTag: 9e0e84ef-0c0f-4992-b0ff-afbc2eb08de1
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Column]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Medidas = calculated
+		mode: import
+		source = Row("Column", BLANK())
+
+	annotation PBI_Id = 2a3b6a2a908e4c50a7c49fd9f761583c
+
+	annotation 436ba87b-9c83-4389-a31b-ebd06a36be98 = {"Expression":""}
+

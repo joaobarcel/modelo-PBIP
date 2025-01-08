@@ -1,0 +1,20 @@
+expression Site = "https://wcmac.sharepoint.com/sites/BRDISTRIBUIDORA" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: fe99a1c4-25ef-4636-adcf-7b31881daace
+	queryGroup: PARAMETROS
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Text
+
+expression fDadosExemplo =
+		let
+		    Fonte = SharePoint.Files(Site, [ApiVersion = 15])
+		in
+		    Fonte
+	lineageTag: b3a6d488-cb8d-4342-a44e-258a99d3486f
+	queryGroup: TB_FATOS
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,32 @@
+table dExemplo
+	lineageTag: de8e6592-23d0-4496-8d07-6d59848c21e9
+
+	column ID
+		dataType: string
+		lineageTag: bce42afc-3c49-492c-bfa6-bb410bbadf4a
+		summarizeBy: none
+		sourceColumn: ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Nome
+		dataType: string
+		lineageTag: aed53832-1279-4bc1-af46-76224a61c291
+		summarizeBy: none
+		sourceColumn: Nome
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dExemplo = m
+		mode: import
+		queryGroup: TB_DIMENSAO
+		source =
+				let
+				    Fonte = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45WqgACJR0lr/zEfKVYnWilSiAA8n0TizITlWJjAQ==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [ID = _t, Nome = _t])
+				in
+				    Fonte
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

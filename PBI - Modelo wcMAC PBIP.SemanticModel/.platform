@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "PBI - Modelo wcMAC PBIP"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "889fecbd-ee78-4e45-a886-0e86fed32dfb"
+  }
+}

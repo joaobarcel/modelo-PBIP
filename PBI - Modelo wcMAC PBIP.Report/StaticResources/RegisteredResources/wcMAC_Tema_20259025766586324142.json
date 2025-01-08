@@ -1,0 +1,44 @@
+{
+  "name": "wcMAC Tema 2025",
+  "textClasses": {
+    "label": {
+      "fontFace": "'Segoe UI Semibold', wf_segoe-ui_semibold, helvetica, arial, sans-serif",
+      "fontSize": 8
+    },
+    "callout": {
+      "fontFace": "'Segoe UI Semibold', wf_segoe-ui_semibold, helvetica, arial, sans-serif",
+      "fontSize": 30
+    },
+    "title": {
+      "fontFace": "'Segoe UI Semibold', wf_segoe-ui_semibold, helvetica, arial, sans-serif",
+      "fontSize": 11
+    }
+  },
+  "dataColors": [
+    "#002368",
+    "#F14F01",
+    "#2C2D31",
+    "#AA0000",
+    "#E6E7E9",
+    "#22372B",
+    "#D9B300",
+    "#D64550"
+  ],
+  "visualStyles": {
+    "*": {
+      "*": {
+        "border": [
+          {
+            "color": {
+              "solid": {
+                "color": "#FAF8F8"
+              }
+            },
+            "show": true,
+            "radius": 5
+          }
+        ]
+      }
+    }
+  }
+}
